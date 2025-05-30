@@ -82,30 +82,63 @@ const MoviePage = () => {
     console.log(movie)
 
     return (
-        <div className='row'>
-            {movie === null ? (
-                `Caricamento dati film`
-            ) : (
-                <>
-                    <div className="col-12 col-md-6 col-lg-4">
-                        <img src={movie.image} alt="Movie" className='img-fluid' />
+        <>
+            <div className='row'>
+                {movie === null ? (
+                    `Caricamento dati film`
+                ) : (
+                    <>
+                        <div className="col-12 col-md-6 col-lg-4">
+                            <img src={movie.image} alt="Movie" className='img-fluid' />
+                        </div>
+                        <div className="col-12 col-md-6 col-lg-8">
+                            <h1>{movie.title}</h1>
+                            <h5>
+                                <em className='text-secondary'>{movie.director}</em>
+                            </h5>
+                            <h4>
+                                <em>{movie.genre}</em>
+                            </h4>
+                            <h6>
+                                <em className='text-secondary'>{movie.release_year}</em>
+                            </h6>
+                            <p>{movie.abstract}</p>
+                        </div>
+                    </>
+                )}
+            </div>
+            <div className="row gy-4">
+                <div className="col-12">
+                    <div className="d-flex justify-content-between">
+                        <h3>Recensioni</h3>
                     </div>
-                    <div className="col-12 col-md-6 col-lg-8">
-                        <h1>{movie.title}</h1>
-                        <h5>
-                            <em className='text-secondary'>{movie.director}</em>
-                        </h5>
-                        <h4>
-                            <em>{movie.genre}</em>
-                        </h4>
-                        <h6>
-                            <em className='text-secondary'>{movie.release_year}</em>
-                        </h6>
-                        <p>{movie.abstract}</p>
+                </div>
+                <div className="col-12">
+                    <div className="card p-4">
+                        <p>Testo recensioni</p>
+                        <p>Voto</p>
+                        <p>Autore</p>
                     </div>
-                </>
-            )}
-        </div>
+                </div>
+
+                <div className="col-12">
+                    <div className="card p-4">
+                        <p>Testo recensioni</p>
+                        <p>Voto</p>
+                        <p>Autore</p>
+                    </div>
+                </div>
+
+                <div className="col-12">
+                    <div className="card p-4">
+                        <p>Testo recensioni</p>
+                        <p>Voto</p>
+                        <p>Autore</p>
+                    </div>
+                </div>
+            </div>
+        </>
+
     )
 }
 
