@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import ReviewCard from '../../components/ReviewCard'
 
 const initialMovies = [
     {
@@ -10,7 +11,27 @@ const initialMovies = [
         genre: "Action",
         release_year: "2003",
         abstract: "Lorem ipsum",
-        image: "https://picsum.photos/500/300"
+        image: "https://picsum.photos/500/300",
+        reviews: [
+            {
+                id: 1,
+                text: "Lorem ipsum",
+                author: "Nome1",
+                vote: 1
+            },
+            {
+                id: 2,
+                text: "Lorem ipsum",
+                author: "Nome2",
+                vote: 1
+            },
+            {
+                id: 3,
+                text: "Lorem ipsum",
+                author: "Nome3",
+                vote: 1
+            },
+        ]
     },
     {
         id: 2,
@@ -19,7 +40,27 @@ const initialMovies = [
         genre: "Action",
         release_year: "2003",
         abstract: "Lorem ipsum",
-        image: "https://picsum.photos/500/300"
+        image: "https://picsum.photos/500/300",
+        reviews: [
+            {
+                id: 4,
+                text: "Lorem ipsum",
+                author: "Nome4",
+                vote: 2
+            },
+            {
+                id: 5,
+                text: "Lorem ipsum",
+                author: "Nome5",
+                vote: 2
+            },
+            {
+                id: 6,
+                text: "Lorem ipsum",
+                author: "Nome6",
+                vote: 2
+            },
+        ]
     },
     {
         id: 3,
@@ -28,7 +69,27 @@ const initialMovies = [
         genre: "Action",
         release_year: "2003",
         abstract: "Lorem ipsum",
-        image: "https://picsum.photos/500/300"
+        image: "https://picsum.photos/500/300",
+        reviews: [
+            {
+                id: 7,
+                text: "Lorem ipsum",
+                author: "Nome7",
+                vote: 3
+            },
+            {
+                id: 8,
+                text: "Lorem ipsum",
+                author: "Nome8",
+                vote: 3
+            },
+            {
+                id: 9,
+                text: "Lorem ipsum",
+                author: "Nome9",
+                vote: 3
+            },
+        ]
     },
     {
         id: 4,
@@ -37,7 +98,27 @@ const initialMovies = [
         genre: "Action",
         release_year: "2003",
         abstract: "Lorem ipsum",
-        image: "https://picsum.photos/500/300"
+        image: "https://picsum.photos/500/300",
+        reviews: [
+            {
+                id: 10,
+                text: "Lorem ipsum",
+                author: "Nome10",
+                vote: 4
+            },
+            {
+                id: 11,
+                text: "Lorem ipsum",
+                author: "Nome11",
+                vote: 4
+            },
+            {
+                id: 12,
+                text: "Lorem ipsum",
+                author: "Nome12",
+                vote: 4
+            },
+        ]
     },
     {
         id: 5,
@@ -46,7 +127,27 @@ const initialMovies = [
         genre: "Action",
         release_year: "2003",
         abstract: "Lorem ipsum",
-        image: "https://picsum.photos/500/300"
+        image: "https://picsum.photos/500/300",
+        reviews: [
+            {
+                id: 13,
+                text: "Lorem ipsum",
+                author: "Nome13",
+                vote: 5
+            },
+            {
+                id: 14,
+                text: "Lorem ipsum",
+                author: "Nome14",
+                vote: 5
+            },
+            {
+                id: 15,
+                text: "Lorem ipsum",
+                author: "Nome15",
+                vote: 5
+            },
+        ]
     },
     {
         id: 6,
@@ -55,7 +156,27 @@ const initialMovies = [
         genre: "Action",
         release_year: "2003",
         abstract: "Lorem ipsum",
-        image: "https://picsum.photos/500/300"
+        image: "https://picsum.photos/500/300",
+        reviews: [
+            {
+                id: 16,
+                text: "Lorem ipsum",
+                author: "Nome16",
+                vote: 6
+            },
+            {
+                id: 17,
+                text: "Lorem ipsum",
+                author: "Nome17",
+                vote: 6
+            },
+            {
+                id: 18,
+                text: "Lorem ipsum",
+                author: "Nome18",
+                vote: 6
+            },
+        ]
     },
 ]
 
@@ -85,7 +206,7 @@ const MoviePage = () => {
 
     const { id } = useParams();
     const [movies, setMovies] = useState(initialMovies);
-    const [reviews, setReviews] = useState(initialReviews);
+
 
     const [movie, setMovie] = useState(null);
 
@@ -127,28 +248,20 @@ const MoviePage = () => {
                             </h6>
                             <p>{movie.abstract}</p>
                         </div>
+                        <div className="col-12">
+                            <div className="d-flex justify-content-between">
+                                <h3>Recensioni</h3>
+                            </div>
+                        </div>
+                        {movie.reviews.map((review) => (
+                            <div className="row gy-3">
+                                <ReviewCard review={review} key={`review -${review.id}`} />
+                            </div>
+                        ))}
                     </>
                 )}
             </div>
-            <div className="row gy-4">
-                <div className="col-12">
-                    <div className="d-flex justify-content-between">
-                        <h3>Recensioni</h3>
-                    </div>
-                </div>
-                {reviews.map((review) => (
-                    <div className="col-12">
-                        <div className="card p-4">
-                            <p>{review.text}</p>
-                            <p>{review.vote}</p>
-                            <p>{review.author}</p>
-                        </div>
-                    </div>
-                ))}
 
-
-
-            </div>
         </>
 
     )
