@@ -59,12 +59,35 @@ const initialMovies = [
     },
 ]
 
+
+const initialReviews = [
+    {
+        id: 1,
+        text: "Lorem ipsum",
+        author: "Nome1",
+        vote: 3
+    },
+    {
+        id: 2,
+        text: "Lorem ipsum",
+        author: "Nome2",
+        vote: 5
+    },
+    {
+        id: 3,
+        text: "Lorem ipsum",
+        author: "Nome3",
+        vote: 2
+    },
+]
+
 const MoviePage = () => {
 
     const { id } = useParams();
     const [movies, setMovies] = useState(initialMovies);
+    const [reviews, setReviews] = useState(initialReviews);
 
-    const [movie, setMovie] = useState({});
+    const [movie, setMovie] = useState(null);
 
     // funzione che recupera l'array che ha l'id passato come parametro
     const fetchMovie = () => {
@@ -113,29 +136,18 @@ const MoviePage = () => {
                         <h3>Recensioni</h3>
                     </div>
                 </div>
-                <div className="col-12">
-                    <div className="card p-4">
-                        <p>Testo recensioni</p>
-                        <p>Voto</p>
-                        <p>Autore</p>
+                {reviews.map((review) => (
+                    <div className="col-12">
+                        <div className="card p-4">
+                            <p>{review.text}</p>
+                            <p>{review.vote}</p>
+                            <p>{review.author}</p>
+                        </div>
                     </div>
-                </div>
+                ))}
 
-                <div className="col-12">
-                    <div className="card p-4">
-                        <p>Testo recensioni</p>
-                        <p>Voto</p>
-                        <p>Autore</p>
-                    </div>
-                </div>
 
-                <div className="col-12">
-                    <div className="card p-4">
-                        <p>Testo recensioni</p>
-                        <p>Voto</p>
-                        <p>Autore</p>
-                    </div>
-                </div>
+
             </div>
         </>
 
