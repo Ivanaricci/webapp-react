@@ -67,7 +67,7 @@ const HomePage = () => {
     const [movies, setMovies] = useState(initialMovies);
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:3000/api/movies').then((resp) => {
+        axios.get('http://localhost:3000/api/movies').then((resp) => {
             console.log(resp.data)
         }).catch((err) => {
             console.log(err)
