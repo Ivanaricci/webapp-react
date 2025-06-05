@@ -22,6 +22,17 @@ const MoviePage = () => {
             .catch((err) => console.log(err));
     };
 
+    // metodo per il numero di stelle in base al volo
+    const renderStars = (vote) => {
+        return [1, 2, 3, 4, 5].map((elem, i) => {
+            return <i
+                key={`star-average-${i}`}
+                className={`fa-star ${i < vote ? "fa-solid" : "fa-regular"
+                    } text-warning`}
+            ></i>
+        })
+    }
+
     useEffect(() => {
         fetchMovie()
     }, []);
@@ -54,6 +65,9 @@ const MoviePage = () => {
                         <div className="col-12">
                             <div className="d-flex justify-content-between">
                                 <h3>Recensioni</h3>
+                                <div>
+                                    {renderStars(movie.average_vote)}
+                                </div>
                             </div>
                         </div>
                         {movie.reviews.map((review) => (

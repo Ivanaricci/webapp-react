@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye } from "@fortawesome/free-solid-svg-icons"
 
 const MovieCard = ({ movie }) => {
 
@@ -22,7 +24,9 @@ const MovieCard = ({ movie }) => {
                         <em className='text-secondary'>{movie.release_year}</em>
                     </h6>
                     <p>{movie.abstract}</p>
-                    <Link className="btn btn-primary" to={`/movies/${movie.id}`}>Leggi tutto</Link>
+                    <Link className="btn btn-primary" to={`/movies/${movie.id}`}>
+                        <FontAwesomeIcon icon={faEye} />
+                        Leggi tutto</Link>
                 </div>
             </div>
         </div>
