@@ -7,7 +7,7 @@ const ReviewCard = ({ review }) => {
                 <div className="card p-4">
                     <p>{review.text}</p>
                     <p>{review.vote}</p>
-                    <p>{review.author}</p>
+                    <p>{review.name}</p>
                 </div>
             </div>
         </div>
